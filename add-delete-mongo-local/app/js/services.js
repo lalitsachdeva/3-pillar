@@ -9,22 +9,22 @@ angular.module('myApp.services', []).
   value('version', '0.1')
   .factory("moviesService", function($http, Restangular){
     var _getMovies = function(){
-    	var movieData = Restangular.all('wines').getList();
+    	var movieData = Restangular.all('users').getList();
     	return movieData;
     }
     
     var _addNewMovie = function(movie){
-    	movie = Restangular.all('wines').post(movie);
+    	movie = Restangular.all('users').post(movie);
     	return movie;
     	
     }
     var _editMovie = function(movie){
-    	var originalMovie =  Restangular.one('wines', movie.id).get();
+    	var originalMovie =  Restangular.one('users', movie.id).get();
     	var editMovie = Restangular.copy(originalMovie);
     	return editMovie;
     }
     var _removeMovie = function(movie){
-    	var originalMovie =  Restangular.one('wines', movie.id).get();
+    	var originalMovie =  Restangular.one('users', movie.id).get();
     	return originalMovie;
     }
 
